@@ -12,10 +12,10 @@ function PlayState:init()
     self.player = Player {
         animations = ENTITY_DEFS['player'].animations,
         walkSpeed = ENTITY_DEFS['player'].walkSpeed,
-        
+
         x = VIRTUAL_WIDTH / 2 - 8,
         y = VIRTUAL_HEIGHT / 2 - 11,
-        
+
         width = 16,
         height = 22,
 
@@ -28,7 +28,7 @@ function PlayState:init()
 
     self.dungeon = Dungeon(self.player)
     self.currentRoom = Room(self.player)
-    
+
     self.player.stateMachine = StateMachine {
         ['walk'] = function() return PlayerWalkState(self.player, self.dungeon) end,
         ['idle'] = function() return PlayerIdleState(self.player) end,
@@ -38,6 +38,17 @@ function PlayState:init()
 end
 
 function PlayState:update(dt)
+    if self.paused then
+        if love.keyboard.wasPressed('p') then
+            self.paused = false
+        else
+            return
+        end
+    elseif love.keyboard.wasPressed('p') then
+        self.paused = true
+        return
+    end
+
     if love.keyboard.wasPressed('escape') then
         love.event.quit()
     end
@@ -66,7 +77,12 @@ function PlayState:render()
 
         love.graphics.draw(gTextures['hearts'], gFrames['hearts'][heartFrame],
             (i - 1) * (TILE_SIZE + 1), 2)
-        
+
         healthLeft = healthLeft - 2
+    end
+
+    if self.paused then
+      love.graphics.setFont(gFonts['zelda'])
+      love.graphics.printf('paused', 0, VIRTUAL_HEIGHT / 2 - 30, VIRTUAL_WIDTH, 'center')
     end
 end
