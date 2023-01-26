@@ -1,11 +1,3 @@
---[[
-    GD50
-    Legend of Zelda
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-]]
-
 GAME_OBJECT_DEFS = {
     ['switch'] = {
         type = 'switch',
@@ -24,6 +16,22 @@ GAME_OBJECT_DEFS = {
             }
         }
     },
+    ['water'] = {
+        type = 'water',
+        texture = 'water-tiles',
+        width = 16,
+        frame = 661,
+        height = 16,
+        solid = true,
+        defaultState = 'water1',
+        states = {
+            ['water1'] = {
+                frame = 661
+            }
+        }
+
+    },
+
     ['pot'] = {
         -- TODO
     }

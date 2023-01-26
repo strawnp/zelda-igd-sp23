@@ -4,8 +4,8 @@
 
 ### Level 1:
 - Pause button
-- Damage at full health
-- Connect room switch for doorways to slaying of enemies
+- Damage at full health (alongside enemy's having more than 1 HP)
+- ~~Connect room switch for doorways to slaying of enemies~~ (DONE)
 - Score
 
 ### Level 2:
