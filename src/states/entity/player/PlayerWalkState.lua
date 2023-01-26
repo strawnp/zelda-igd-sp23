@@ -1,11 +1,3 @@
---[[
-    GD50
-    Legend of Zelda
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-]]
-
 PlayerWalkState = Class{__includes = EntityWalkState}
 
 function PlayerWalkState:init(player, dungeon)
@@ -57,7 +49,6 @@ function PlayerWalkState:update(dt)
                     Event.dispatch('shift-left')
                 end
             end
-
             -- readjust
             self.entity.x = self.entity.x + PLAYER_WALK_SPEED * dt
         elseif self.entity.direction == 'right' then
@@ -73,6 +64,7 @@ function PlayerWalkState:update(dt)
                     self.entity.y = doorway.y + 4
                     Event.dispatch('shift-right')
                 end
+                
             end
 
             -- readjust
@@ -91,7 +83,6 @@ function PlayerWalkState:update(dt)
                     Event.dispatch('shift-up')
                 end
             end
-
             -- readjust
             self.entity.y = self.entity.y + PLAYER_WALK_SPEED * dt
         else
@@ -108,7 +99,6 @@ function PlayerWalkState:update(dt)
                     Event.dispatch('shift-down')
                 end
             end
-
             -- readjust
             self.entity.y = self.entity.y - PLAYER_WALK_SPEED * dt
         end
