@@ -91,14 +91,20 @@ function Room:generateObjects()
     -- define a function for the switch that will open all doors in the room
     switch.onCollide = function()
         if switch.state == 'unpressed' then
-            switch.state = 'pressed'
-            
-            -- open every door in the room if we press the switch
-            for k, doorway in pairs(self.doorways) do
-                doorway.open = true
-            end
+            self.entitiesAlive = false
 
-            gSounds['door']:play()
+            for i = 1, 10 do
+              if self.entities[i].dead == false then
+                self.entitiesAlive = true
+              end
+            end
+            if self.entitiesAlive == false then
+                switch.state = 'pressed'
+                for k, doorway in pairs(self.doorways) do
+                    doorway.open = true
+                end
+                gSounds['door']:play()
+            end
         end
     end
 
