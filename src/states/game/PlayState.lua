@@ -5,7 +5,6 @@
     Author: Colton Ogden
     cogden@cs50.harvard.edu
 ]]
-
 PlayState = Class{__includes = BaseState}
 
 function PlayState:init()
@@ -32,7 +31,10 @@ function PlayState:init()
     self.player.stateMachine = StateMachine {
         ['walk'] = function() return PlayerWalkState(self.player, self.dungeon) end,
         ['idle'] = function() return PlayerIdleState(self.player) end,
-        ['swing-sword'] = function() return PlayerSwingSwordState(self.player, self.dungeon) end
+        ['swing-sword'] = function() return PlayerSwingSwordState(self.player, self.dungeon) end,
+        ['pot-lift'] = function() return PlayerPotLiftState(self.player, self.dungeon) end,
+        ['pot-walk'] = function() return PlayerPotWalkState(self.player, self.dungeon) end,
+        ['pot-idle'] = function() return PlayerPotIdleState(self.player, self.dungeon) end
     }
     self.player:changeState('idle')
 end
