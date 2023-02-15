@@ -43,7 +43,8 @@ gTextures = {
     ['hearts'] = love.graphics.newImage('graphics/hearts.png'),
     ['switches'] = love.graphics.newImage('graphics/switches.png'),
     ['entities'] = love.graphics.newImage('graphics/entities.png'),
-    ['water-tiles'] = love.graphics.newImage('graphics/tileset_water.png')
+    ['water-tiles'] = love.graphics.newImage('graphics/tileset_water.png'),
+    ['pots'] = love.graphics.newImage('graphics/tilesheet.png')
 }
 
 gFrames = {
@@ -53,7 +54,8 @@ gFrames = {
     ['character-swing-sword'] = GenerateQuads(gTextures['character-swing-sword'], 32, 32),
     ['entities'] = GenerateQuads(gTextures['entities'], 16, 16),
     ['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16),
-    ['switches'] = GenerateQuads(gTextures['switches'], 16, 18)
+    ['switches'] = GenerateQuads(gTextures['switches'], 16, 18),
+     ['pots'] = GenerateQuads(gTextures['pots'], 16, 16)
 }
 
 gFonts = {
